@@ -30,3 +30,6 @@ bin/
 .gradle/
 .project
 .settings/
+
+# ignore intellij Idea
+.idea/
