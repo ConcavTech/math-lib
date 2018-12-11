@@ -33,3 +33,4 @@ bin/
 
 # ignore intellij Idea
 .idea/
+build/
