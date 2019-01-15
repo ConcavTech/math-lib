@@ -2,15 +2,14 @@ package io.concavtech.math.minuses;
 
 import dtos.SumDto;
 import io.concavtech.math.exceptions.IllegalLengthException;
-import lombok.extern.flogger.Flogger;
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-@Slf4j
 public class GenerateMinuses {
 
+    Logger log = LoggerFactory.getLogger(GenerateMinuses.class);
     /**
      * Return the single digit sum for the minus sums.
      * @return the object of SumDto with the values and answer.
