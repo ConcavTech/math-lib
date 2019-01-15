@@ -1,3 +1,3 @@
 package dtos
 
-class SumDto(val num1: Int, val num2: Int, val answer: Int)
+class SumDto(val num1: Long, val num2: Long, val answer: Long)
