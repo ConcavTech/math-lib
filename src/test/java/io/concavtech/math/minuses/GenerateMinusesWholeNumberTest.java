@@ -1,7 +1,7 @@
 package io.concavtech.math.minuses;
 
 import dtos.SumDto;
-import io.concavtech.math.exceptions.IllegalLengthException;
+import exceptions.IllegalLengthException;
 import org.junit.Assert;
 import org.junit.Test;
 

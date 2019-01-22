@@ -1,7 +1,7 @@
 package io.concavtech.math.minuses;
 
 import dtos.SumDto;
-import io.concavtech.math.exceptions.IllegalLengthException;
+import exceptions.IllegalLengthException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class GenerateMinusDecimalNumber {
 
-    private Logger log = LoggerFactory.getLogger(GenerateMinusesWholeNumber.class);
+    private Logger log = LoggerFactory.getLogger(GenerateMinusDecimalNumber.class);
     private static GenerateMinusDecimalNumber ourInstance = new GenerateMinusDecimalNumber();
 
     public static GenerateMinusDecimalNumber getInstance() {
