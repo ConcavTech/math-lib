@@ -1,7 +1,7 @@
 package io.concavtech.math.minuses;
 
-import dtos.SumDto;
-import exceptions.IllegalLengthException;
+import io.concavtech.math.dtos.SumDecimalDto;
+import io.concavtech.math.exceptions.IllegalLengthException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,30 +21,30 @@ public class GenerateMinusDecimalNumber {
 
     /**
      * Return the single digit sum for the minus sums.
-     * @return the object of SumDto with the values and answer.
+     * @return the object of SumDecimalDto with the values and answer.
      */
-    public SumDto singleDigitPositiveWholeNumber(){
-        SumDto dto = null;
+    public SumDecimalDto singleDigitPositiveDecimalNumber(){
+        SumDecimalDto dto = null;
         Random random = new Random();
-        int num1 = random.nextInt(10);
-        int num2 = random.nextInt(10);
+        double num1 = random.nextInt(10);
+        double num2 = random.nextInt(10);
         if(num1 < num2) {
-            int ans = num2 - num1;
+            double ans = num2 - num1;
             log.info(num2+" - "+num1 + " = "+ ans);
-            return new SumDto(num2, num1, ans);
+            return new SumDecimalDto(num2, num1, ans);
         }
-        int ans = num1 - num2;
+        double ans = num1 - num2;
         log.info(num1+" - "+num2 + " = "+ ans);
-        return new SumDto(num1, num2, ans);
+        return new SumDecimalDto(num1, num2, ans);
     }
 
     /**
      * Return the sum for the minus sums.
      * @param length is the number of digits.
-     * @return the object of SumDto with the values and answer.
+     * @return the object of SumDecimalDto with the values and answer.
      */
 
-    public SumDto allPositiveWholeNumberWithoutCarry(int length){
+    public SumDecimalDto allPositiveDecimalNumberWithoutCarry(int length){
         if(length > 19){
             throw new IllegalLengthException("Length cannot be more than 19");
         }
@@ -62,19 +62,25 @@ public class GenerateMinusDecimalNumber {
                 stringBuilder2.append(num2);
             }
         }
-        long num1 = Long.parseLong(stringBuilder1.toString());
-        long num2 = Long.parseLong(stringBuilder2.toString());
-        long ans = num1- num2;
+        int decimalPosition1 = random.nextInt(length-1);
+        if(decimalPosition1 < 1){
+            decimalPosition1 = 1;
+        }
+        stringBuilder1.insert(decimalPosition1, ".");
+        stringBuilder2.insert(decimalPosition1, ".");
+        double num1 = Double.parseDouble(stringBuilder1.toString());
+        double num2 = Double.parseDouble(stringBuilder2.toString());
+        double ans = num1- num2;
         log.info(num1+" - "+num2 + " = "+ ans);
-        return new SumDto(num1, num2, ans);
+        return new SumDecimalDto(num1, num2, ans);
     }
 
     /**
      * Return the sum for the minus sums with carry.
      * @param length is the number of digits.
-     * @return the object of SumDto with the values and answer.
+     * @return the object of SumDecimalDto with the values and answer.
      */
-    public SumDto allPositiveWholeNumberWithCarry(int length){
+    public SumDecimalDto allPositiveDecimalNumberWithCarry(int length){
         if(length > 19){
             throw new IllegalLengthException("Length cannot be more than 19");
         }
@@ -87,27 +93,32 @@ public class GenerateMinusDecimalNumber {
 
             stringBuilder1.append(num1);
             stringBuilder2.append(num2);
-
         }
-        long num1 = Long.parseLong(stringBuilder1.toString());
-        long num2 = Long.parseLong(stringBuilder2.toString());
+        int decimalPosition1 = random.nextInt(length-1);
+        if(decimalPosition1 < 1){
+            decimalPosition1 = 1;
+        }
+        stringBuilder1.insert(decimalPosition1, ".");
+        stringBuilder2.insert(decimalPosition1, ".");
+        double num1 = Double.parseDouble(stringBuilder1.toString());
+        double num2 = Double.parseDouble(stringBuilder2.toString());
         if(num1 < num2){
-            long ans = num2- num1;
+            double ans = num2- num1;
             log.info(num2+" - "+num1 + " = "+ ans);
-            return new SumDto(num2, num1, ans);
+            return new SumDecimalDto(num2, num1, ans);
         }
-        long ans = num1- num2;
+        double ans = num1- num2;
         log.info(num1+" - "+num2 + " = "+ ans);
-        return new SumDto(num1, num2, ans);
+        return new SumDecimalDto(num1, num2, ans);
     }
 
 
     /**
      * All negative and positive answer could be possible.
      * @param length is the number in digit; not more than 19
-     * @return the SumDto object
+     * @return the SumDecimalDto object
      */
-    public SumDto allPositiveWholeNumberMixedAnswer(int length){
+    public SumDecimalDto allPositiveDecimalNumberMixedAnswer(int length){
         if(length > 19){
             throw new IllegalLengthException("Length cannot be more than 19");
         }
@@ -122,10 +133,16 @@ public class GenerateMinusDecimalNumber {
             stringBuilder2.append(num2);
 
         }
-        long num1 = Long.parseLong(stringBuilder1.toString());
-        long num2 = Long.parseLong(stringBuilder2.toString());
-        long ans = num1- num2;
+        int decimalPosition1 = random.nextInt(length-1);
+        if(decimalPosition1 < 1){
+            decimalPosition1 = 1;
+        }
+        stringBuilder1.insert(decimalPosition1, ".");
+        stringBuilder2.insert(decimalPosition1, ".");
+        double num1 = Double.parseDouble(stringBuilder1.toString());
+        double num2 = Double.parseDouble(stringBuilder2.toString());
+        double ans = num1- num2;
         log.info(num1+" - "+num2 + " = "+ ans);
-        return new SumDto(num1, num2, ans);
+        return new SumDecimalDto(num1, num2, ans);
     }
 }

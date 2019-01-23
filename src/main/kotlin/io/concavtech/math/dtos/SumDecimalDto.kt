@@ -1,3 +1,3 @@
-package dtos
+package io.concavtech.math.dtos
 
 data class SumDecimalDto(val num1: Double, val num2: Double, val answer: Double)

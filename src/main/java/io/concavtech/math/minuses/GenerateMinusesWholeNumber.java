@@ -1,7 +1,7 @@
 package io.concavtech.math.minuses;
 
-import dtos.SumDto;
-import exceptions.IllegalLengthException;
+import io.concavtech.math.dtos.SumDto;
+import io.concavtech.math.exceptions.IllegalLengthException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
